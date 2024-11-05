@@ -1,18 +1,21 @@
-pub use utils::*;
+mod game;
+mod utils;
 
-use macroquad::prelude::*;
+pub(crate) use game::engine;
+pub(crate) use ggez::{Context, ContextBuilder, GameResult};
+pub(crate) use ggez::event::{self, EventHandler};
 
-#[macroquad::main("BasicShapes")]
-pub async fn main() {
-    loop {
-        clear_background(RED);
+fn main() {
+    // Make a Context.
+    let (mut ctx, event_loop) = ContextBuilder::new("my_game", "Cool Game Author")
+        .build()
+        .expect("aieee, could not create ggez context!");
 
-        draw_line(40.0, 40.0, 100.0, 200.0, 15.0, BLUE);
-        draw_rectangle(screen_width() / 2.0 - 60.0, 100.0, 120.0, 60.0, GREEN);
-        draw_circle(screen_width() - 30.0, screen_height() - 30.0, 15.0, YELLOW);
-
-        draw_text("IT WORKS!", 20.0, 20.0, 30.0, DARKGRAY);
-
-        next_frame().await
-    }
+    // Create an instance of your event handler.
+    // Usually, you should provide it with the Context object to
+    // use when setting your game up.
+    let my_game = engine::Game::new(&mut ctx);
+    let gogo: utils::fixture::AABB;
+    // Run!
+    event::run(ctx, event_loop, my_game);
 }
