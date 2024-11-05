@@ -15,7 +15,6 @@ fn main() {
     // Usually, you should provide it with the Context object to
     // use when setting your game up.
     let my_game = engine::Game::new(&mut ctx);
-    let gogo: utils::fixture::AABB;
     // Run!
     event::run(ctx, event_loop, my_game);
 }

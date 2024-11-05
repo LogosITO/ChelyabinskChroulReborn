@@ -41,21 +41,21 @@ impl CircleFixture {
     }
 }
 
-pub(crate) fn PointvsAABB(p: Point2<f32>, a: AABB) -> bool {
+pub(crate) fn pointvs_aabb(p: Point2<f32>, a: AABB) -> bool {
     p.x >= a._min.x && p.x <= a._max.x && p.y >= a._min.y && p.y <= a._max.y
 }
 
-pub(crate) fn PointvsCircle(p: Point2<f32>, a: CircleFixture) -> bool {
+pub(crate) fn pointvs_circle(p: Point2<f32>, a: CircleFixture) -> bool {
     let distance: f32 = (p.x - a._center.x) * (p.x - a._center.x) +
                         (p.y - a._center.y) * (p.y - a._center.y);
     distance < a._radius * a._radius
 }
 
-pub(crate) fn AABBvsAABB(a: AABB, b: AABB) -> bool {
+pub(crate) fn aabbvs_aabb(a: AABB, b: AABB) -> bool {
     a._min.x <= b._max.x && a._max.x >= b._min.x && a._min.y <= b._min.y && a._min.y >= b._min.y
 }
 
-pub(crate) fn AABBvsCircle(a: AABB, b: CircleFixture) -> bool {
+pub(crate) fn aabbvs_circle(a: AABB, b: CircleFixture) -> bool {
     let x: f32 = a._min.x.max(b._center.x.min(a._max.x));
     let y: f32 = a._min.y.max(b._center.y.min(a._max.y));
     let distance: f32 = (x - b._center.x) * (x - b._center.x) +
@@ -63,7 +63,7 @@ pub(crate) fn AABBvsCircle(a: AABB, b: CircleFixture) -> bool {
     distance < b._radius * b._radius
 }
 
-pub(crate) fn CirclevsCircle(a: CircleFixture, b: CircleFixture) -> bool {
+pub(crate) fn circlevs_circle(a: CircleFixture, b: CircleFixture) -> bool {
     let distance: f32 = (a._center.x - b._center.x) * (a._center.x - b._center.x) +
                         (a._center.y - b._center.y) * (a._center.x - b._center.x);
     distance < (a._radius * b._radius) * (a._radius * b._radius)

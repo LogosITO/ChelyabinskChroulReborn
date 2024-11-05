@@ -25,32 +25,32 @@ pub(crate) mod tests {
 
     #[test]
     pub(crate) fn PointvsAABB() {
-        assert_eq!(fixture::PointvsAABB(PF, FF), true);
-        assert_eq!(fixture::PointvsAABB(PF, FS), true);
+        assert_eq!(fixture::pointvs_aabb(PF, FF), true);
+        assert_eq!(fixture::pointvs_aabb(PF, FS), true);
     }
 
     #[test]
     pub(crate) fn PointvsCircle() {
-        assert_eq!(fixture::PointvsCircle(PF, CF), true);
-        assert_eq!(fixture::PointvsCircle(PF, CS), false);
+        assert_eq!(fixture::pointvs_circle(PF, CF), true);
+        assert_eq!(fixture::pointvs_circle(PF, CS), false);
     }
 
     #[test]
     pub(crate) fn AABBvsAABB() {
-        assert_eq!(fixture::AABBvsAABB(FF, FS), true);
+        assert_eq!(fixture::aabbvs_aabb(FF, FS), true);
     }
 
     #[test]
     pub(crate) fn CirclevsCircle() {
-        assert_eq!(fixture::CirclevsCircle(CF, CS). true);
+        assert_eq!(fixture::circlevs_circle(CF, CS). true);
     }
 
     #[test]
     pub(crate) fn AABBvsCircle() {
-        assert_eq!(fixture::AABBvsCircle(FF, CF), true);
-        assert_eq!(fixture::AABBvsCircle(FS, CF), true);
-        assert_eq!(fixture::AABBvsCircle(FF, CS), false);
-        assert_eq!(fixture::AABBvsCircle(FS, CS), false);
+        assert_eq!(fixture::aabbvs_circle(FF, CF), true);
+        assert_eq!(fixture::aabbvs_circle(FS, CF), true);
+        assert_eq!(fixture::aabbvs_circle(FF, CS), false);
+        assert_eq!(fixture::aabbvs_circle(FS, CS), false);
     }
 
 }

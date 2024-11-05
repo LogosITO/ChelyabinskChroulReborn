@@ -1,5 +1,5 @@
 [package]
-name = "graphics1"
+name = "CCR"
 version = "0.1.0"
 edition = "2021"
 authors = ["Peter Artyukhov", "artyukhov.p@outlook.com"]
@@ -23,7 +23,6 @@ rpath = false
 [profile.release]
 opt-level = 3
 debug = false
-split-debuginfo = '...'
 strip = "none"
 debug-assertions = false
 overflow-checks = false
