@@ -2,7 +2,7 @@ use ggez::{Context, ContextBuilder, GameResult};
 use ggez::graphics::{self, Color};
 use ggez::event::{self, EventHandler};
 
-pub(crate) struct Game {
+pub struct Game {
 // Your state here...
 }
 

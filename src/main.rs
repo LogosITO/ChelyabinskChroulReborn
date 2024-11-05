@@ -1,8 +1,7 @@
 mod game;
-mod utils;
 
 pub(crate) use game::engine;
-pub(crate) use ggez::{Context, ContextBuilder, GameResult};
+pub(crate) use ggez::{ContextBuilder};
 pub(crate) use ggez::event::{self, EventHandler};
 
 fn main() {
